@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历 - 王前</title>
+    <title data-i18n="title">个人简历 - 王前</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);color:#333;line-height:1.6;min-height:100vh;padding:40px 20px;}
+        .lang-toggle{position:fixed;top:20px;right:20px;z-index:1000;background:#fff;border:2px solid #2e86c1;border-radius:30px;padding:6px 4px;display:flex;gap:2px;box-shadow:0 4px 15px rgba(0,0,0,0.15);cursor:pointer;overflow:hidden;}
+        .lang-toggle .opt{padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;transition:all 0.25s;cursor:pointer;border:none;background:transparent;color:#888;}
+        .lang-toggle .opt.active{background:#2e86c1;color:#fff;box-shadow:0 2px 8px rgba(46,134,193,0.3);}
+        .lang-toggle .opt:hover:not(.active){color:#2e86c1;}
         .resume{max-width:900px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);overflow:hidden;}
         .header{background:linear-gradient(135deg,#1a5276 0%,#2e86c1 100%);color:#fff;padding:50px 40px 40px;display:flex;align-items:center;gap:30px;}
         .avatar{width:140px;height:140px;border-radius:50%;border:4px solid rgba(255,255,255,0.6);background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:bold;color:#fff;flex-shrink:0;overflow:hidden;}
@@ -48,16 +52,20 @@
     </style>
 </head>
 <body>
+<div class="lang-toggle" id="langToggle">
+    <button class="opt active" data-lang="zh">中文</button>
+    <button class="opt" data-lang="en">EN</button>
+</div>
 <div class="resume">
     <div class="header">
         <div class="avatar"><img src="王前 证件照.jpg" alt="王前" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="header-info">
             <h1>王前</h1>
-            <div class="title">博士研究生（在读）· 农业工程 / 电子信息</div>
+            <div class="title" data-i18n="headerTitle">博士研究生（在读）· 农业工程 / 电子信息</div>
             <div class="header-contact">
                 <span>&#128222; 15737820567</span>
                 <span>&#9993; 25b901072@stu.hit.edu.cn</span>
-                <span>&#128205; 山东省威海市 · 哈尔滨工业大学（威海）</span>
+                <span data-i18n="location">&#128205; 山东省威海市 · 哈尔滨工业大学（威海）</span>
                 <span>&#128279; github.com/PU186</span>
             </div>
         </div>
@@ -65,15 +73,15 @@
     <div class="body">
         <div class="sidebar">
             <div class="section">
-                <div class="section-title">&#128100; 基本信息</div>
-                <div class="info-item"><span class="label">性别</span> 男</div>
-                <div class="info-item"><span class="label">出生年月</span> 2000年4月</div>
-                <div class="info-item"><span class="label">籍贯</span> 河南杞县</div>
-                <div class="info-item"><span class="label">学历</span> 博士在读</div>
-                <div class="info-item"><span class="label">政治面貌</span> 中共党员</div>
+                <div class="section-title" data-i18n="sectionBasic">&#128100; 基本信息</div>
+                <div class="info-item"><span class="label" data-i18n="labelGender">性别</span> <span data-i18n="gender">男</span></div>
+                <div class="info-item"><span class="label" data-i18n="labelBirth">出生年月</span> <span data-i18n="birth">2000年4月</span></div>
+                <div class="info-item"><span class="label" data-i18n="labelHometown">籍贯</span> <span data-i18n="hometown">河南杞县</span></div>
+                <div class="info-item"><span class="label" data-i18n="labelEdu">学历</span> <span data-i18n="eduLevel">博士在读</span></div>
+                <div class="info-item"><span class="label" data-i18n="labelPolitical">政治面貌</span> <span data-i18n="political">中共党员</span></div>
             </div>
             <div class="section">
-                <div class="section-title">&#128736; 专业技能</div>
+                <div class="section-title" data-i18n="sectionSkills">&#128736; 专业技能</div>
                 <div class="skills">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">PyTorch</span>
@@ -90,97 +98,277 @@
                 </div>
             </div>
             <div class="section">
-                <div class="section-title">&#127760; 语言能力</div>
-                <div class="lang-item"><span>中文</span><span class="level">母语 / 普通话（三级甲等）</span></div>
-                <div class="lang-item"><span>英语</span><span class="level">CET-4 · 科技文献读写</span></div>
+                <div class="section-title" data-i18n="sectionLangs">&#127760; 语言能力</div>
+                <div class="lang-item"><span data-i18n="langChinese">中文</span><span class="level" data-i18n="langChineseLevel">母语 / 普通话（三级甲等）</span></div>
+                <div class="lang-item"><span data-i18n="langEnglish">英语</span><span class="level" data-i18n="langEnglishLevel">CET-4 · 科技文献读写</span></div>
             </div>
             <div class="section">
-                <div class="section-title">&#127919; 兴趣爱好</div>
+                <div class="section-title" data-i18n="sectionInterests">&#127919; 兴趣爱好</div>
                 <div class="interests">
-                    <span class="interest-tag">&#127926; 器乐（金奖）</span>
-                    <span class="interest-tag">&#127939; 跑步</span>
-                    <span class="interest-tag">&#128187; 编程</span>
+                    <span class="interest-tag" data-i18n="interestMusic">&#127926; 器乐（金奖）</span>
+                    <span class="interest-tag" data-i18n="interestRun">&#127939; 跑步</span>
+                    <span class="interest-tag" data-i18n="interestCode">&#128187; 编程</span>
                 </div>
             </div>
         </div>
         <div class="main-content">
             <div class="section">
-                <div class="section-title">&#127891; 教育背景</div>
+                <div class="section-title" data-i18n="sectionEducation">&#127891; 教育背景</div>
                 <div class="edu-item">
-                    <div class="edu-header"><span class="school">哈尔滨工业大学（威海）</span><span class="edu-date">2025.09 - 至今</span></div>
-                    <div class="edu-major">电子信息专业 · 工学博士（在读）</div>
+                    <div class="edu-header"><span class="school" data-i18n="schoolHIT">哈尔滨工业大学（威海）</span><span class="edu-date" data-i18n="phdDate">2025.09 - 至今</span></div>
+                    <div class="edu-major" data-i18n="majorPhd">电子信息专业 · 工学博士（在读）</div>
                 </div>
                 <div class="edu-item">
-                    <div class="edu-header"><span class="school">华中农业大学</span><span class="edu-date">2022.09 - 2025.06</span></div>
-                    <div class="edu-major">农业装备工程 · 工学硕士</div>
+                    <div class="edu-header"><span class="school" data-i18n="schoolHZAU">华中农业大学</span><span class="edu-date" data-i18n="masterDate">2022.09 - 2025.06</span></div>
+                    <div class="edu-major" data-i18n="majorMaster">农业装备工程 · 工学硕士</div>
                     <div class="exp-desc"><ul>
-                        <li>研究方向：近红外光谱检测、便携式品质检测装置</li>
-                        <li>发表 SCI 论文 1 篇、EI 论文 1 篇、软著 5 项、专利 2 项</li>
-                        <li>2023-2024、2024-2025 连续两学年获评三好研究生</li>
+                        <li data-i18n="masterResearch">研究方向：近红外光谱检测、便携式品质检测装置</li>
+                        <li data-i18n="masterPapers">发表 SCI 论文 1 篇、EI 论文 1 篇、软著 5 项、专利 2 项</li>
+                        <li data-i18n="masterHonor">2023-2024、2024-2025 连续两学年获评三好研究生</li>
                     </ul></div>
                 </div>
                 <div class="edu-item">
-                    <div class="edu-header"><span class="school">华中农业大学</span><span class="edu-date">2018.09 - 2022.06</span></div>
-                    <div class="edu-major">农业机械化及其自动化 · 工学学士</div>
+                    <div class="edu-header"><span class="school" data-i18n="schoolHZAU">华中农业大学</span><span class="edu-date" data-i18n="bachelorDate">2018.09 - 2022.06</span></div>
+                    <div class="edu-major" data-i18n="majorBachelor">农业机械化及其自动化 · 工学学士</div>
                     <div class="exp-desc"><ul>
-                        <li>2019年第十五届武汉市高校艺术节器乐类金奖</li>
-                        <li>2022年研究生招生考试专业第一</li>
+                        <li data-i18n="bachelorAward">2019年第十五届武汉市高校艺术节器乐类金奖</li>
+                        <li data-i18n="bachelorExam">2022年研究生招生考试专业第一</li>
                     </ul></div>
                 </div>
             </div>
             <div class="section">
-                <div class="section-title">&#128196; 科研成果</div>
+                <div class="section-title" data-i18n="sectionResearch">&#128196; 科研成果</div>
                 <div class="exp-item">
-                    <div class="exp-header"><span class="exp-title">期刊论文</span></div>
+                    <div class="exp-header"><span class="exp-title" data-i18n="papersTitle">期刊论文</span></div>
                     <div class="exp-desc"><ul>
-                        <li>A portable rapeseed quality non-destructive inspection device based on multichannel spectroscopy. <em>Journal of Food Composition and Analysis</em>, 2025. (SCI, doi: 10.1016/j.jfca.2025.108028)</li>
-                        <li>基于近红外光谱的便携式油菜籽品质检测装置研制. <em>农业工程学报</em>, 2024. (EI, doi: 10.11975/j.issn.1002-6819.202402106)</li>
+                        <li data-i18n="paper1">A portable rapeseed quality non-destructive inspection device based on multichannel spectroscopy. <em>Journal of Food Composition and Analysis</em>, 2025. (SCI, doi: 10.1016/j.jfca.2025.108028)</li>
+                        <li data-i18n="paper2">基于近红外光谱的便携式油菜籽品质检测装置研制. <em>农业工程学报</em>, 2024. (EI, doi: 10.11975/j.issn.1002-6819.202402106)</li>
                     </ul></div>
                 </div>
                 <div class="exp-item">
-                    <div class="exp-header"><span class="exp-title">专利</span></div>
+                    <div class="exp-header"><span class="exp-title" data-i18n="patentsTitle">专利</span></div>
                     <div class="exp-desc"><ul>
-                        <li>一种油菜籽定量取样装置. 实用新型专利, ZL202323474598.1, 2024</li>
-                        <li>一种基于深度学习的作物种子品质预测方法和系统. 发明专利, 2025（授权）</li>
+                        <li data-i18n="patent1">一种油菜籽定量取样装置. 实用新型专利, ZL202323474598.1, 2024</li>
+                        <li data-i18n="patent2">一种基于深度学习的作物种子品质预测方法和系统. 发明专利, 2025（授权）</li>
                     </ul></div>
                 </div>
                 <div class="exp-item">
-                    <div class="exp-header"><span class="exp-title">软件著作权</span></div>
+                    <div class="exp-header"><span class="exp-title" data-i18n="softTitle">软件著作权</span></div>
                     <div class="exp-desc"><ul>
-                        <li>作物种子品质预测程序 (2023SR1066027)</li>
-                        <li>油菜籽品质预测与显示软件 (2024SR0255126)</li>
-                        <li>自驱动风速风向传感电路控制程序 (2024SR1122828)</li>
-                        <li>基于Python的硬件控制与多通道光谱采集程序 (2025SR0270801)</li>
-                        <li>油菜籽多通道光谱的训练、建模与应用程序 (2025SR0276663)</li>
-                    </ul></div>
-                </div>
-            </div>
-            <div class="section">
-                <div class="section-title">&#128269; 项目经历</div>
-                <div class="exp-item">
-                    <div class="exp-header"><span class="exp-title">便携式油菜籽品质检测装置</span><span class="exp-date">2023.09 - 2025.06</span></div>
-                    <div class="exp-sub">硕士学位课题 · 华中农业大学</div>
-                    <div class="exp-desc"><ul>
-                        <li>设计基于近红外光谱的便携式检测装置（246x128x127 mm），集成微型光谱仪、LCD触摸屏、树莓派</li>
-                        <li>采集65个油菜籽品种光谱数据，使用CARS/LARS/UVE降维 + PLS/ELM/SVR建模</li>
-                        <li>含油量/蛋白质/硫苷/含水率/芥酸预测 R2 分别达 0.949/0.861/0.730/0.976/0.862</li>
-                        <li>使用 PyTorch + QT Creator 实现模型嵌入式部署，Flask + MQTT 开发 APP/网页/小程序</li>
-                        <li>户外稳定工作6h，检测时间13s，温湿度适应范围广</li>
+                        <li data-i18n="soft1">作物种子品质预测程序 (2023SR1066027)</li>
+                        <li data-i18n="soft2">油菜籽品质预测与显示软件 (2024SR0255126)</li>
+                        <li data-i18n="soft3">自驱动风速风向传感电路控制程序 (2024SR1122828)</li>
+                        <li data-i18n="soft4">基于Python的硬件控制与多通道光谱采集程序 (2025SR0270801)</li>
+                        <li data-i18n="soft5">油菜籽多通道光谱的训练、建模与应用程序 (2025SR0276663)</li>
                     </ul></div>
                 </div>
             </div>
             <div class="section">
-                <div class="section-title">&#127942; 荣誉 &amp; 证书</div>
+                <div class="section-title" data-i18n="sectionProject">&#128269; 项目经历</div>
+                <div class="exp-item">
+                    <div class="exp-header"><span class="exp-title" data-i18n="projectTitle">便携式油菜籽品质检测装置</span><span class="exp-date" data-i18n="projectDate">2023.09 - 2025.06</span></div>
+                    <div class="exp-sub" data-i18n="projectSub">硕士学位课题 · 华中农业大学</div>
+                    <div class="exp-desc"><ul>
+                        <li data-i18n="projectDesc1">设计基于近红外光谱的便携式检测装置（246x128x127 mm），集成微型光谱仪、LCD触摸屏、树莓派</li>
+                        <li data-i18n="projectDesc2">采集65个油菜籽品种光谱数据，使用CARS/LARS/UVE降维 + PLS/ELM/SVR建模</li>
+                        <li data-i18n="projectDesc3">含油量/蛋白质/硫苷/含水率/芥酸预测 R2 分别达 0.949/0.861/0.730/0.976/0.862</li>
+                        <li data-i18n="projectDesc4">使用 PyTorch + QT Creator 实现模型嵌入式部署，Flask + MQTT 开发 APP/网页/小程序</li>
+                        <li data-i18n="projectDesc5">户外稳定工作6h，检测时间13s，温湿度适应范围广</li>
+                    </ul></div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title" data-i18n="sectionHonors">&#127942; 荣誉 &amp; 证书</div>
                 <div class="exp-desc"><ul>
-                    <li>2023-2024 年度、2024-2025 年度 三好研究生</li>
-                    <li>2019年 第十五届武汉市高校艺术节 器乐类金奖</li>
-                    <li>英语四级（471分）</li>
-                    <li>普通话三级甲等</li>
+                    <li data-i18n="honor1">2023-2024 年度、2024-2025 年度 三好研究生</li>
+                    <li data-i18n="honor2">2019年 第十五届武汉市高校艺术节 器乐类金奖</li>
+                    <li data-i18n="honor3">英语四级（471分）</li>
+                    <li data-i18n="honor4">普通话三级甲等</li>
                 </ul></div>
             </div>
         </div>
     </div>
-    <div class="footer">感谢您花时间阅读我的简历，期待有机会与您共事！</div>
+    <div class="footer" data-i18n="footer">感谢您花时间阅读我的简历，期待有机会与您共事！</div>
 </div>
+
+<script>
+const i18n = {
+  "zh": {
+    "title": "个人简历 - 王前",
+    "headerTitle": "博士研究生（在读）· 农业工程 / 电子信息",
+    "location": "山东省威海市 · 哈尔滨工业大学（威海）",
+    "sectionBasic": "基本信息",
+    "sectionSkills": "专业技能",
+    "sectionLangs": "语言能力",
+    "sectionInterests": "兴趣爱好",
+    "sectionEducation": "教育背景",
+    "sectionResearch": "科研成果",
+    "sectionProject": "项目经历",
+    "sectionHonors": "荣誉 & 证书",
+    "gender": "男",
+    "birth": "2000年4月",
+    "hometown": "河南杞县",
+    "eduLevel": "博士在读",
+    "political": "中共党员",
+    "labelGender": "性别",
+    "labelBirth": "出生年月",
+    "labelHometown": "籍贯",
+    "labelEdu": "学历",
+    "labelPolitical": "政治面貌",
+    "langChinese": "中文",
+    "langChineseLevel": "母语 / 普通话（三级甲等）",
+    "langEnglish": "英语",
+    "langEnglishLevel": "CET-4 · 科技文献读写",
+    "interestMusic": "器乐（金奖）",
+    "interestRun": "跑步",
+    "interestCode": "编程",
+    "schoolHIT": "哈尔滨工业大学（威海）",
+    "majorPhd": "电子信息专业 · 工学博士（在读）",
+    "phdDate": "2025.09 - 至今",
+    "schoolHZAU": "华中农业大学",
+    "majorMaster": "农业装备工程 · 工学硕士",
+    "masterDate": "2022.09 - 2025.06",
+    "masterResearch": "研究方向：近红外光谱检测、便携式品质检测装置",
+    "masterPapers": "发表 SCI 论文 1 篇、EI 论文 1 篇、软著 5 项、专利 2 项",
+    "masterHonor": "2023-2024、2024-2025 连续两学年获评三好研究生",
+    "majorBachelor": "农业机械化及其自动化 · 工学学士",
+    "bachelorDate": "2018.09 - 2022.06",
+    "bachelorAward": "2019年第十五届武汉市高校艺术节器乐类金奖",
+    "bachelorExam": "2022年研究生招生考试专业第一",
+    "papersTitle": "期刊论文",
+    "paper1": "A portable rapeseed quality non-destructive inspection device based on multichannel spectroscopy. <em>Journal of Food Composition and Analysis</em>, 2025. (SCI, doi: 10.1016/j.jfca.2025.108028)",
+    "paper2": "基于近红外光谱的便携式油菜籽品质检测装置研制. <em>农业工程学报</em>, 2024. (EI, doi: 10.11975/j.issn.1002-6819.202402106)",
+    "patentsTitle": "专利",
+    "patent1": "一种油菜籽定量取样装置. 实用新型专利, ZL202323474598.1, 2024",
+    "patent2": "一种基于深度学习的作物种子品质预测方法和系统. 发明专利, 2025（授权）",
+    "softTitle": "软件著作权",
+    "soft1": "作物种子品质预测程序 (2023SR1066027)",
+    "soft2": "油菜籽品质预测与显示软件 (2024SR0255126)",
+    "soft3": "自驱动风速风向传感电路控制程序 (2024SR1122828)",
+    "soft4": "基于Python的硬件控制与多通道光谱采集程序 (2025SR0270801)",
+    "soft5": "油菜籽多通道光谱的训练、建模与应用程序 (2025SR0276663)",
+    "projectTitle": "便携式油菜籽品质检测装置",
+    "projectDate": "2023.09 - 2025.06",
+    "projectSub": "硕士学位课题 · 华中农业大学",
+    "projectDesc1": "设计基于近红外光谱的便携式检测装置（246x128x127 mm），集成微型光谱仪、LCD触摸屏、树莓派",
+    "projectDesc2": "采集65个油菜籽品种光谱数据，使用CARS/LARS/UVE降维 + PLS/ELM/SVR建模",
+    "projectDesc3": "含油量/蛋白质/硫苷/含水率/芥酸预测 R2 分别达 0.949/0.861/0.730/0.976/0.862",
+    "projectDesc4": "使用 PyTorch + QT Creator 实现模型嵌入式部署，Flask + MQTT 开发 APP/网页/小程序",
+    "projectDesc5": "户外稳定工作6h，检测时间13s，温湿度适应范围广",
+    "honor1": "2023-2024 年度、2024-2025 年度 三好研究生",
+    "honor2": "2019年 第十五届武汉市高校艺术节 器乐类金奖",
+    "honor3": "英语四级（471分）",
+    "honor4": "普通话三级甲等",
+    "footer": "感谢您花时间阅读我的简历，期待有机会与您共事！"
+  },
+  "en": {
+    "title": "Resume - Qian Wang",
+    "headerTitle": "Ph.D. Candidate · Agricultural Engineering / Electronic Information",
+    "location": "Weihai, Shandong · Harbin Institute of Technology (Weihai)",
+    "sectionBasic": "Basic Info",
+    "sectionSkills": "Skills",
+    "sectionLangs": "Languages",
+    "sectionInterests": "Interests",
+    "sectionEducation": "Education",
+    "sectionResearch": "Publications & Patents",
+    "sectionProject": "Project Experience",
+    "sectionHonors": "Honors & Awards",
+    "gender": "Male",
+    "birth": "April 2000",
+    "hometown": "Qi County, Henan",
+    "eduLevel": "Ph.D. Candidate",
+    "political": "CPC Member",
+    "labelGender": "Gender",
+    "labelBirth": "Date of Birth",
+    "labelHometown": "Hometown",
+    "labelEdu": "Education",
+    "labelPolitical": "Political Status",
+    "langChinese": "Chinese",
+    "langChineseLevel": "Native / Mandarin (Grade 3A)",
+    "langEnglish": "English",
+    "langEnglishLevel": "CET-4 · Academic Reading & Writing",
+    "interestMusic": "Instrumental Music (Gold Award)",
+    "interestRun": "Running",
+    "interestCode": "Programming",
+    "schoolHIT": "Harbin Institute of Technology (Weihai)",
+    "majorPhd": "Electronic Information · Ph.D. Candidate",
+    "phdDate": "2025.09 – Present",
+    "schoolHZAU": "Huazhong Agricultural University",
+    "majorMaster": "Agricultural Equipment Engineering · M.Eng.",
+    "masterDate": "2022.09 – 2025.06",
+    "masterResearch": "Research: NIR spectroscopy, portable quality inspection devices",
+    "masterPapers": "Published 1 SCI paper, 1 EI paper, 5 software copyrights, 2 patents",
+    "masterHonor": "Merit Graduate Student (2023-2024, 2024-2025)",
+    "majorBachelor": "Agricultural Mechanization & Automation · B.Eng.",
+    "bachelorDate": "2018.09 – 2022.06",
+    "bachelorAward": "Gold Award, 15th Wuhan College Arts Festival Instrumental Competition (2019)",
+    "bachelorExam": "Ranked 1st in the 2022 Postgraduate Entrance Exam",
+    "papersTitle": "Journal Papers",
+    "paper1": "A portable rapeseed quality non-destructive inspection device based on multichannel spectroscopy. <em>Journal of Food Composition and Analysis</em>, 2025. (SCI, doi: 10.1016/j.jfca.2025.108028)",
+    "paper2": "Development of portable rapeseed quality detection device based on NIR spectroscopy. <em>Transactions of the CSAE</em>, 2024. (EI, doi: 10.11975/j.issn.1002-6819.202402106)",
+    "patentsTitle": "Patents",
+    "patent1": "A quantitative sampling device for rapeseed. Utility Model Patent, ZL202323474598.1, 2024",
+    "patent2": "A deep learning-based crop seed quality prediction method and system. Invention Patent, 2025 (Granted)",
+    "softTitle": "Software Copyrights",
+    "soft1": "Crop Seed Quality Prediction Program (2023SR1066027)",
+    "soft2": "Rapeseed Quality Prediction & Display Software (2024SR0255126)",
+    "soft3": "Self-powered Wind Speed & Direction Sensor Control Program (2024SR1122828)",
+    "soft4": "Python-based Hardware Control & Multi-channel Spectrum Acquisition Program (2025SR0270801)",
+    "soft5": "Rapeseed Multi-channel Spectrum Training, Modeling & Application Program (2025SR0276663)",
+    "projectTitle": "Portable Rapeseed Quality Detection Device",
+    "projectDate": "2023.09 – 2025.06",
+    "projectSub": "Master's Thesis · Huazhong Agricultural University",
+    "projectDesc1": "Designed a portable NIR detection device (246×128×127mm) integrating micro-spectrometer, LCD touchscreen, Raspberry Pi",
+    "projectDesc2": "Collected spectral data from 65 rapeseed varieties; used CARS/LARS/UVE for dimensionality reduction + PLS/ELM/SVR modeling",
+    "projectDesc3": "Prediction R² for oil/protein/glucosinolate/moisture/erucic acid: 0.949/0.861/0.730/0.976/0.862 respectively",
+    "projectDesc4": "Deployed models on embedded devices via PyTorch + QT Creator; developed APP/web/mini-program via Flask + MQTT",
+    "projectDesc5": "Stable outdoor operation for 6h, detection time 13s, wide temperature & humidity adaptability",
+    "honor1": "Merit Graduate Student (2023-2024, 2024-2025)",
+    "honor2": "Gold Award, 15th Wuhan College Arts Festival (2019)",
+    "honor3": "CET-4 (471 points)",
+    "honor4": "Mandarin Proficiency Grade 3A",
+    "footer": "Thank you for taking the time to read my resume. I look forward to the opportunity to work with you!"
+  }
+};
+
+function switchLang(lang) {
+  const t = i18n[lang];
+  if (!t) return;
+
+  // Update page title
+  document.title = t.title;
+
+  // Update all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
+
+  // Update toggle buttons
+  document.querySelectorAll('.lang-toggle .opt').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Store preference
+  localStorage.setItem('resumeLang', lang);
+}
+
+// Initialize language
+(function initLang() {
+  const saved = localStorage.getItem('resumeLang');
+  const lang = saved || 'zh';
+  switchLang(lang);
+})();
+
+// Toggle click handler
+document.getElementById('langToggle').addEventListener('click', function(e) {
+  const btn = e.target.closest('.opt');
+  if (btn && !btn.classList.contains('active')) {
+    switchLang(btn.dataset.lang);
+  }
+});
+</script>
 </body>
 </html>
