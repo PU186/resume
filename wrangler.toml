@@ -1,0 +1,6 @@
+name = "resume"
+main = "_worker.js"
+compatibility_date = "2025-06-01"
+
+# 静态资源配置
+assets = { directory = ".", binding = "ASSETS" }
