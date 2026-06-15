@@ -3,3 +3,10 @@ start.bat
 stop.bat
 write_resume.ps1
 cloudflared.exe
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
